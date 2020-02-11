@@ -30,9 +30,10 @@ let
     sha256 = "0l3iz2f9gdbbpra41pdhj1dsy46vw2k9ky7ifxgxcfasbzmj36xf";
   };
 
-  wayland = pkgs.wayland;
   libxkbcommon = pkgs.libxkbcommon;
-  wlroots = pkgs.wlroots;
+  wayland = pkgs.wayland;
+  wlroots = pkgs.wlroots; # at the time of this commit, 0.10.0
+
 in pkgs.mkShell {
   name = "bspwwm";
   version = "0.0.1";
@@ -43,28 +44,29 @@ in pkgs.mkShell {
   LUA_CPATH = "${wayland}/lib/lib?.so;${libxkbcommon}/lib/lib?.so;${wlroots}/lib/lib?.so;;";
   WLROOTS = "${wlroots}";
 
-  nativeBuildInputs = (with pkgs; [
-    # fetchFromGitHub fetchurl
-    libudev
-    libxkbcommon
-    luajit
-    mesa_noglu
-    pixman
-    pkgconfig
-    rlwrap
-    wayland
-    wayland-protocols
-    wlroots
+  nativeBuildInputs =
+    [
+      wayland
+      wlroots
+      libxkbcommon
+    ] ++ (with pkgs; [
+      libudev
+      luajit
+      mesa_noglu
+      pixman
+      pkgconfig
+      rlwrap
+      wayland-protocols
 
-    libudev
-    xorg.libX11
-    libxkbcommon
-    luajit
-    mesa_noglu
-    pixman
-    pkgconfig
-    wayland
-    wayland-protocols
-    wlroots
-  ]);
+      libudev
+      xorg.libX11
+      libxkbcommon
+      luajit
+      mesa_noglu
+      pixman
+      pkgconfig
+      wayland
+      wayland-protocols
+      wlroots
+    ]);
 }

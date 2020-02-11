@@ -22,5 +22,4 @@
 (wlroots.wlr_log_init 3 nil)
 
 (print "ahahahaha")
-
 (+ 1 2)

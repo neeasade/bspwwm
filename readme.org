@@ -1,0 +1,2 @@
+
+Taking a lot of inspiration from [[https://github.com/telent/fenestra][fenestra]]. Using luajit for it's FFI/to stay close to upstream, using fennel so we can have buffer repl magic.

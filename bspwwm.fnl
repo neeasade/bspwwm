@@ -78,14 +78,13 @@
   ;; /* The Wayland display is managed by libwayland. It handles accepting
   ;; * clients from the Unix socket, manging Wayland globals, and so on. */
   ;; server.wl_display = wl_display_create()
-  (let [display (ffi.C.wl_display_create)
-        backend (ffi.C.wlr_backend_autocreate display nil)
-        renderer (ffi.C.wlr_backend_get_renderer backend)
-        ]
+  (let [display (wayland.wl_display_create)
+        backend (wlroots.wlr_backend_autocreate display nil)
+        renderer (wlroots.wlr_backend_get_renderer backend)]
 
-    (ffi.C.wlr_renderer_init_wl_display renderer display)
-    (ffi.C.wlr_compositor_create display renderer)
-    (ffi.C.wlr_data_device_manager display)
+    (wlroots.wlr_renderer_init_wl_display renderer display)
+    (wlroots.wlr_compositor_create display renderer)
+    (wlroots.wlr_data_device_manager_create display)
 
     ;; gross
     (tset state :wl
@@ -94,7 +93,7 @@
                  :backend backend
                  :renderer renderer)))
 
-  (tset state :wl :output_layout (ffi.C.wlr_output_layout_create))
+  (tset state :wl :output_layout (wlroots.wlr_output_layout_create))
 
   ;; this works! yay
   (local testlist (ffi.new "struct wlr_list"))
@@ -210,4 +209,4 @@
   )
 
 (print "ahahahah")
-(+ 1 2)
+(init)

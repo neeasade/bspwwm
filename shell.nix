@@ -32,7 +32,18 @@ let
 
   libxkbcommon = pkgs.libxkbcommon;
   wayland = pkgs.wayland;
-  wlroots = pkgs.wlroots; # at the time of this commit, 0.10.0
+  # wlroots = pkgs.wlroots ;
+
+  wlroots = (pkgs.wlroots.overrideAttrs(old: {
+    version = "0.10.0";
+
+    src = pkgs.fetchFromGitHub {
+      owner = "swaywm";
+      repo = "wlroots";
+      rev = "0.10.0";
+      sha256 = "0c0q1p9yss5kx4430ik3n89drqpmm2bvgl8fjlf6prac1a7xzqn8";
+    };
+  }));
 
 in pkgs.mkShell {
   name = "bspwwm";

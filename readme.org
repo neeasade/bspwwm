@@ -1,7 +1,17 @@
-This is vaporware right now. I'm playing with this mostly from emacs with inferior lisp mode, currently just trying to MVP with the tinywl example from wlroots.
+** bspwwm
 
-Taking a lot of inspiration (and initial code!) from [[https://github.com/telent/fenestra][fenestra]]. Using luajit for it's FFI/to stay close to upstream, using fennel so we can have buffer repl magic.
+bspwwm = binary space partioning (wayland/wlroots) window manager, IE wayland [[https://github.com/baskerville/bspwm][bspwm]].
 
+*This is vaporware right now*. I'm playing with this mostly from emacs with inferior lisp mode, currently just trying to MVP with the tinywl example from wlroots.
+
+Taking a lot of inspiration (and initial code!) from [[https://github.com/telent/fenestra][fenestra]]. Using luajit for it's FFI, using fennel so we can have buffer repl magic.
+
+** notes:
+
+- using lorri for nix-shell direnv integration, which I then sync with emacs using emacs-direnv
+- lorri is constantly rebuilding right now, so enabling the service selectively.
+
+** building
 If you have nix, you can test the build with:
 
 #+begin_src console
@@ -9,5 +19,3 @@ $ nix-shell
 $ make
 $ ./bspwwm
 #+end_src
-
-bspwwm = binary space partioning (wayland/wlroots) window manager

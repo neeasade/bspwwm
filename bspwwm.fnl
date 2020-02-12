@@ -21,6 +21,23 @@
 (lambda from-cpath [name]
   (package.searchpath name package.cpath))
 
+;; (lambda ffi-address [cdata]
+;;   (tonumber (ffi.cast "intptr_t" (ffi.cast "void *" cdata))))
+
+;; lmao
+(lambda & [cdata]
+  (ffi.cast
+   (string.format "%s *"
+                  (-> cdata
+                      ffi.typeof
+                      tostring
+                      ;; eg "ctype<struct wlr_list>"
+                      (string.gsub "ctype<" "")
+                      (string.gsub ">" "")
+                      ))
+   cdata
+   ))
+
 (local wlroots (ffi.load (from-cpath "wlroots")))
 (local wayland (ffi.load (from-cpath "wayland-server")))
 (local xkbcommon (ffi.load (from-cpath "xkbcommon")))
@@ -78,6 +95,13 @@
                  :renderer renderer)))
 
   (tset state :wl :output_layout (ffi.C.wlr_output_layout_create))
+
+  ;; this works! yay
+  (local testlist (ffi.new "struct wlr_list"))
+  (wlroots.wlr_list_init (& testlist))
+  (= 10 testlist.capacity)
+
+  ;; arst: testing making a wl list list:
 
   ;; /* Configure a listener to be notified when new outputs are available on the
   ;;  * backend. */
@@ -183,9 +207,7 @@
   ;; /* Once wl_display_run returns, we shut down the server. */
   ;; wl_display_destroy_clients(server.wl_display);
   ;; wl_display_destroy(server.wl_display);
-
   )
-
 
 (print "ahahahah")
 (+ 1 2)

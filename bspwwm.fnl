@@ -1,7 +1,13 @@
 ;; -*- mode: fennel -*-
 
+;; reminder: you can have macros in another file with
+;; require-macros -- check that out for like
+;; (wlroots.wlr_thing 1 2) --> (wlr thing 1 2)
+;; and additionally maybe (thing &arst) ->> (thing (& arst))
+
 ;;  notes
 ;; the same: (tset state "a" 1) (tset state :a 1)
+
 (global state
         {
          :app {}

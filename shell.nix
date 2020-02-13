@@ -48,11 +48,12 @@ let
 in pkgs.mkShell {
   name = "bspwwm";
   version = "0.0.1";
-  src = ./.;
+  # src = ./.;
 
   FENNEL = "${fennel}/fennel";
   LUA_PATH = "${fennel}/?.fnl.lua;${fennel}/?.lua;${ffi_reflect}/?.lua;${luafun}/?.lua;;";
   LUA_CPATH = "${wayland}/lib/lib?.so;${libxkbcommon}/lib/lib?.so;${wlroots}/lib/lib?.so;;";
+
   WLROOTS = "${wlroots}";
 
   nativeBuildInputs =

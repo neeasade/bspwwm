@@ -1,6 +1,9 @@
-TAGS
-bspwwm
-*.out
-xdg-*-protocol.h
-*.fnl.lua
+# xdg-*-protocol.h
 *~
+
+# see build.sh
+resources/bindings/*.h
+!resources/bindings/.gitkeep
+
+resources/protocol/*.h
+!resources/bindings/.gitkeep

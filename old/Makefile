@@ -17,13 +17,13 @@ CFLAGS=$(shell pkg-config --cflags xkbcommon) \
 	$(FENNEL) --compile $< > /tmp/$$PPID
 	mv /tmp/$$PPID $@
 
-xdg-shell-protocol.h:
-	wayland-scanner server-header $(PROTOCOLS)/wayland-protocols/stable/xdg-shell/xdg-shell.xml $@
+# xdg-shell-protocol.h:
+# 	wayland-scanner server-header $(PROTOCOLS)/wayland-protocols/stable/xdg-shell/xdg-shell.xml $@
 
-xdg-shell-unstable-v6-protocol.h:
-	wayland-scanner server-header $(PROTOCOLS)/wayland-protocols/unstable/xdg-shell/xdg-shell-unstable-v6.xml  $@
+# xdg-shell-unstable-v6-protocol.h:
+# 	wayland-scanner server-header $(PROTOCOLS)/wayland-protocols/unstable/xdg-shell/xdg-shell-unstable-v6.xml  $@
 
-defs.h.out: xdg-shell-unstable-v6-protocol.h xdg-shell-protocol.h Makefile
+# defs.h.out: xdg-shell-unstable-v6-protocol.h xdg-shell-protocol.h Makefile
 %.h.out: %.h
 	$(CC) $(CFLAGS) -P -E - < $< | sed -e 's/static \([0-9]\+\)/\1/g' |   cat -s > /tmp/$$PPID
 	mv /tmp/$$PPID $@

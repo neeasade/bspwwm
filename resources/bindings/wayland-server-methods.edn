@@ -1,0 +1,122 @@
+'[[^void wl_list_init 
+[^bytes ^{Pinned {}} list]]
+
+[^void wl_list_insert 
+[^bytes ^{Pinned {}} list
+^bytes ^{Pinned {}} elm]]
+
+[^void wl_list_remove 
+[^bytes ^{Pinned {}} elm]]
+
+[^int wl_list_length 
+[^const list]]
+
+[^int wl_list_empty 
+[^const list]]
+
+[^void wl_list_insert_list 
+[^bytes ^{Pinned {}} list
+^bytes ^{Pinned {}} other]]
+
+[^void wl_array_init 
+[^bytes ^{Pinned {}} array]]
+
+[^void wl_array_release 
+[^bytes ^{Pinned {}} array]]
+
+[^int wl_array_copy 
+[^bytes ^{Pinned {}} array
+^bytes ^{Pinned {}} source]]
+
+[^void wl_event_loop_destroy 
+[^bytes ^{Pinned {}} loop]]
+
+[^int wl_event_source_fd_update 
+[^bytes ^{Pinned {}} source
+^u_int32_t mask]]
+
+[^int wl_event_source_remove 
+[^bytes ^{Pinned {}} source]]
+
+[^void wl_event_source_check 
+[^bytes ^{Pinned {}} source]]
+
+[^int wl_event_loop_dispatch 
+[^bytes ^{Pinned {}} loop
+^int timeout]]
+
+[^void wl_event_loop_dispatch_idle 
+[^bytes ^{Pinned {}} loop]]
+
+[^int wl_event_loop_get_fd 
+[^bytes ^{Pinned {}} loop]]
+
+[^void wl_display_destroy 
+[^bytes ^{Pinned {}} display]]
+
+[^int wl_display_add_socket 
+[^bytes ^{Pinned {}} display
+^const name]]
+
+[^int wl_display_add_socket_fd 
+[^bytes ^{Pinned {}} display
+^int sock_fd]]
+
+[^void wl_display_terminate 
+[^bytes ^{Pinned {}} display]]
+
+[^void wl_display_run 
+[^bytes ^{Pinned {}} display]]
+
+[^void wl_display_flush_clients 
+[^bytes ^{Pinned {}} display]]
+
+[^void wl_display_destroy_clients 
+[^bytes ^{Pinned {}} display]]
+
+[^void wl_global_destroy 
+[^bytes ^{Pinned {}} global]]
+
+[^void wl_client_destroy 
+[^bytes ^{Pinned {}} client]]
+
+[^void wl_client_flush 
+[^bytes ^{Pinned {}} client]]
+
+[^int wl_client_get_fd 
+[^bytes ^{Pinned {}} client]]
+
+[^void wl_client_post_no_memory 
+[^bytes ^{Pinned {}} client]]
+
+[^void wl_resource_post_no_memory 
+[^bytes ^{Pinned {}} resource]]
+
+[^void wl_resource_destroy 
+[^bytes ^{Pinned {}} resource]]
+
+[^void wl_resource_set_user_data 
+[^bytes ^{Pinned {}} resource
+^void data]]
+
+[^int wl_resource_get_version 
+[^bytes ^{Pinned {}} resource]]
+
+[^void wl_shm_buffer_begin_access 
+[^bytes ^{Pinned {}} buffer]]
+
+[^void wl_shm_buffer_end_access 
+[^bytes ^{Pinned {}} buffer]]
+
+[^void wl_shm_pool_unref 
+[^bytes ^{Pinned {}} pool]]
+
+[^int wl_display_init_shm 
+[^bytes ^{Pinned {}} display]]
+
+[^void wl_log_set_handler_server 
+[^wl_log_func_t handler]]
+
+[^void wl_protocol_logger_destroy 
+[^bytes ^{Pinned {}} logger]]
+]

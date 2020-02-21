@@ -1,14 +1,18 @@
-** bspwwm
-
-bspwwm = binary space partioning (wayland/wlroots) window manager, IE wayland [[https://github.com/baskerville/bspwm][bspwm]].
+_bspwwm_ = binary space partioning (wayland/wlroots) window manager, IE wayland [[https://github.com/baskerville/bspwm][bspwm]].
 
 *This is vaporware right now*. I'm playing with this mostly from emacs with inferior lisp mode, currently just trying to MVP with the tinywl example from wlroots.
 
-** notes
+** Notes
 - clojure -> jnr -> wlroots -> wayland-server
 - nix-shell with lorri to setup the environment dependencies
 - a script to get the headers isolated per library/shared object that we care about (strategy ripped from [[https://github.com/telent/fenestra][fenestra]])
 
-** building
+** Building
 
 Nothing yet. Just Mx ~cider-jack-in~ and play around.
+
+** Thanks
+   - https://github.com/lvh/caesium for clojure binding ideas and code
+   - https://github.com/telent/fenestra for some initial inspo and code
+   - https://github.com/swaywm/wlroots for existing/sway inspo
+   - https://github.com/baskerville/bspwm for being that good good

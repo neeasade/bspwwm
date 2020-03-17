@@ -29,8 +29,6 @@
 ;; jnr.ffi.types.u_int16_t
 
 ;; only using this in a one-off to generate bindings
-;; todo: slurp up header files in ./resources/bindings and generate tables like the hard coded version below
-
 (defn generate-bindings []
   ;; eg
   ;; int wl_event_source_fd_update(struct wl_event_source *source, uint32_t mask);
@@ -52,16 +50,24 @@
                       "bytes"
                       (last (re-seq #"[a-zA-Z_]+" %))
                       )
+
+              ;; what were you doing here
               (format "^%s %s"
-                      (s/replace
-                       (first (re-seq #"[0-9a-zA-Z_]+" %))
-                       "uint" "u_int") ;; match jnr
+                      (cond
+
+                        ;; default:
+                        true (s/replace
+                              (first (re-seq #"[0-9a-zA-Z_]+" %))
+                              "uint" "u_int")
+                        )
+
+                      ;; match jnr
                       (last (re-seq #"[a-zA-Z_]+" %))
                       )
               )
            (map s/trim
-           (s/split args #",")
-           )
+                (s/split args #",")
+                )
            )
           ]
       (format "[^%s %s \n[%s]]\n"
@@ -104,7 +110,6 @@
   (generate-method-calls
    "./resources/bindings/xkbcommon.h"
    "./resources/bindings/xkbcommon-methods.edn")
-
   )
 
 (def ^:private bound-byte-type-syms
@@ -129,6 +134,12 @@
   '[
     [^void wlr_log_init [^int verbosity]]
     ]
+  )
+
+(def ^:private raw-bound-fns
+  "See [[bound-fns]], but without the permutations."
+  ;; '[[^void wlr_log_init [^int verbosity]]]
+  (-> "./resources/bindings/wlroots-methods.edn" slurp read-string)
   )
 
 (def ^:private bound-fns

@@ -46,6 +46,7 @@ in pkgs.mkShell {
       wlroots
       libxkbcommon
     ] ++ (with pkgs; [
+      gcc
       libudev
       luajit
       mesa_noglu

@@ -1,404 +1,401 @@
 '[[^void wl_list_init 
-[^bytes ^{Pinned {}} list]]
+   [^bytes ^{Pinned {}} list]]
 
-[^void wl_list_insert 
-[^bytes ^{Pinned {}} list
-^bytes ^{Pinned {}} elm]]
+  [^void wl_list_insert
+   [^bytes ^{Pinned {}} list
+    ^bytes ^{Pinned {}} elm]]
 
-[^void wl_list_remove 
-[^bytes ^{Pinned {}} elm]]
+  [^void wl_list_remove
+   [^bytes ^{Pinned {}} elm]]
 
-[^int wl_list_length 
-[^const list]]
+  [^int wl_list_length
+   [^const list]]
 
-[^int wl_list_empty 
-[^const list]]
+  [^int wl_list_empty
+   [^const list]]
 
-[^void wl_list_insert_list 
-[^bytes ^{Pinned {}} list
-^bytes ^{Pinned {}} other]]
+  [^void wl_list_insert_list
+   [^bytes ^{Pinned {}} list
+    ^bytes ^{Pinned {}} other]]
 
-[^void wl_array_init 
-[^bytes ^{Pinned {}} array]]
+  [^void wl_array_init
+   [^bytes ^{Pinned {}} array]]
 
-[^void wl_array_release 
-[^bytes ^{Pinned {}} array]]
+  [^void wl_array_release
+   [^bytes ^{Pinned {}} array]]
 
-[^int wl_array_copy 
-[^bytes ^{Pinned {}} array
-^bytes ^{Pinned {}} source]]
+  [^int wl_array_copy
+   [^bytes ^{Pinned {}} array
+    ^bytes ^{Pinned {}} source]]
 
-[^void wl_event_loop_destroy 
-[^bytes ^{Pinned {}} loop]]
+  [^void wl_event_loop_destroy
+   [^bytes ^{Pinned {}} loop]]
 
-[^int wl_event_source_fd_update 
-[^bytes ^{Pinned {}} source
-^u_int32_t mask]]
+  [^int wl_event_source_fd_update
+   [^bytes ^{Pinned {}} source
+    ^u_int32_t mask]]
 
-[^int wl_event_source_remove 
-[^bytes ^{Pinned {}} source]]
+  [^int wl_event_source_remove
+   [^bytes ^{Pinned {}} source]]
 
-[^void wl_event_source_check 
-[^bytes ^{Pinned {}} source]]
+  [^void wl_event_source_check
+   [^bytes ^{Pinned {}} source]]
 
-[^int wl_event_loop_dispatch 
-[^bytes ^{Pinned {}} loop
-^int timeout]]
+  [^int wl_event_loop_dispatch
+   [^bytes ^{Pinned {}} loop
+    ^int timeout]]
 
-[^void wl_event_loop_dispatch_idle 
-[^bytes ^{Pinned {}} loop]]
+  [^void wl_event_loop_dispatch_idle
+   [^bytes ^{Pinned {}} loop]]
 
-[^int wl_event_loop_get_fd 
-[^bytes ^{Pinned {}} loop]]
+  [^int wl_event_loop_get_fd
+   [^bytes ^{Pinned {}} loop]]
 
-[^void wl_display_destroy 
-[^bytes ^{Pinned {}} display]]
+  [^void wl_display_destroy
+   [^bytes ^{Pinned {}} display]]
 
-[^int wl_display_add_socket 
-[^bytes ^{Pinned {}} display
-^const name]]
+  [^int wl_display_add_socket
+   [^bytes ^{Pinned {}} display
+    ^const name]]
 
-[^int wl_display_add_socket_fd 
-[^bytes ^{Pinned {}} display
-^int sock_fd]]
+  [^int wl_display_add_socket_fd
+   [^bytes ^{Pinned {}} display
+    ^int sock_fd]]
 
-[^void wl_display_terminate 
-[^bytes ^{Pinned {}} display]]
+  [^void wl_display_terminate
+   [^bytes ^{Pinned {}} display]]
 
-[^void wl_display_run 
-[^bytes ^{Pinned {}} display]]
+  [^void wl_display_run
+   [^bytes ^{Pinned {}} display]]
 
-[^void wl_display_flush_clients 
-[^bytes ^{Pinned {}} display]]
+  [^void wl_display_flush_clients
+   [^bytes ^{Pinned {}} display]]
 
-[^void wl_display_destroy_clients 
-[^bytes ^{Pinned {}} display]]
+  [^void wl_display_destroy_clients
+   [^bytes ^{Pinned {}} display]]
 
-[^void wl_global_destroy 
-[^bytes ^{Pinned {}} global]]
+  [^void wl_global_destroy
+   [^bytes ^{Pinned {}} global]]
 
-[^void wl_client_destroy 
-[^bytes ^{Pinned {}} client]]
+  [^void wl_client_destroy
+   [^bytes ^{Pinned {}} client]]
 
-[^void wl_client_flush 
-[^bytes ^{Pinned {}} client]]
+  [^void wl_client_flush
+   [^bytes ^{Pinned {}} client]]
 
-[^int wl_client_get_fd 
-[^bytes ^{Pinned {}} client]]
+  [^int wl_client_get_fd
+   [^bytes ^{Pinned {}} client]]
 
-[^void wl_client_post_no_memory 
-[^bytes ^{Pinned {}} client]]
+  [^void wl_client_post_no_memory
+   [^bytes ^{Pinned {}} client]]
 
-[^void wl_resource_post_no_memory 
-[^bytes ^{Pinned {}} resource]]
+  [^void wl_resource_post_no_memory
+   [^bytes ^{Pinned {}} resource]]
 
-[^void wl_resource_destroy 
-[^bytes ^{Pinned {}} resource]]
+  [^void wl_resource_destroy
+   [^bytes ^{Pinned {}} resource]]
 
-[^void wl_resource_set_user_data 
-[^bytes ^{Pinned {}} resource
-^void data]]
+  [^void wl_resource_set_user_data
+   [^bytes ^{Pinned {}} resource
+    ^void data]]
 
-[^int wl_resource_get_version 
-[^bytes ^{Pinned {}} resource]]
+  [^int wl_resource_get_version
+   [^bytes ^{Pinned {}} resource]]
 
-[^void wl_shm_buffer_begin_access 
-[^bytes ^{Pinned {}} buffer]]
+  [^void wl_shm_buffer_begin_access
+   [^bytes ^{Pinned {}} buffer]]
 
-[^void wl_shm_buffer_end_access 
-[^bytes ^{Pinned {}} buffer]]
+  [^void wl_shm_buffer_end_access
+   [^bytes ^{Pinned {}} buffer]]
 
-[^void wl_shm_pool_unref 
-[^bytes ^{Pinned {}} pool]]
+  [^void wl_shm_pool_unref
+   [^bytes ^{Pinned {}} pool]]
 
-[^int wl_display_init_shm 
-[^bytes ^{Pinned {}} display]]
+  [^int wl_display_init_shm
+   [^bytes ^{Pinned {}} display]]
 
-[^void wl_log_set_handler_server 
-[^wl_log_func_t handler]]
+  [^void wl_log_set_handler_server
+   [^wl_log_func_t handler]]
 
-[^void wl_protocol_logger_destroy 
-[^bytes ^{Pinned {}} logger]]
+  [^void wl_protocol_logger_destroy
+   [^bytes ^{Pinned {}} logger]]
 
-[^void wlr_dmabuf_attributes_finish 
-[^bytes ^{Pinned {}} attribs]]
+  [^void wlr_dmabuf_attributes_finish
+   [^bytes ^{Pinned {}} attribs]]
 
-[^void wlr_drm_format_set_finish 
-[^bytes ^{Pinned {}} set]]
+  [^void wlr_drm_format_set_finish
+   [^bytes ^{Pinned {}} set]]
 
-[^void wlr_egl_finish 
-[^bytes ^{Pinned {}} egl]]
+  [^void wlr_egl_finish
+   [^bytes ^{Pinned {}} egl]]
 
-[^void wlr_texture_get_size 
-[^bytes ^{Pinned {}} texture
-^int width
-^int height]]
+  [^void wlr_texture_get_size
+   [^bytes ^{Pinned {}} texture
+    ^int width
+    ^int height]]
 
-[^void wlr_texture_destroy 
-[^bytes ^{Pinned {}} texture]]
+  [^void wlr_texture_destroy
+   [^bytes ^{Pinned {}} texture]]
 
-[^void wlr_box_rotated_bounds 
-[^bytes ^{Pinned {}} dest
-^const box
-^float rotation]]
+  [^void wlr_box_rotated_bounds
+   [^bytes ^{Pinned {}} dest
+    ^const box
+    ^float rotation]]
 
-[^void wlr_renderer_begin 
-[^bytes ^{Pinned {}} r
-^int width
-^int height]]
+  [^void wlr_renderer_begin
+   [^bytes ^{Pinned {}} r
+    ^int width
+    ^int height]]
 
-[^void wlr_renderer_end 
-[^bytes ^{Pinned {}} r]]
+  [^void wlr_renderer_end
+   [^bytes ^{Pinned {}} r]]
 
-[^void wlr_renderer_clear 
-[^bytes ^{Pinned {}} r
-^const color]]
+  [^void wlr_renderer_clear
+   [^bytes ^{Pinned {}} r
+    ^const color]]
 
-[^void wlr_renderer_scissor 
-[^bytes ^{Pinned {}} r
-^bytes ^{Pinned {}} box]]
+  [^void wlr_renderer_scissor
+   [^bytes ^{Pinned {}} r
+    ^bytes ^{Pinned {}} box]]
 
-[^void wlr_renderer_destroy 
-[^bytes ^{Pinned {}} renderer]]
+  [^void wlr_renderer_destroy
+   [^bytes ^{Pinned {}} renderer]]
 
-[^void wlr_compositor_destroy 
-[^bytes ^{Pinned {}} wlr_compositor]]
+  [^void wlr_compositor_destroy
+   [^bytes ^{Pinned {}} wlr_compositor]]
 
-[^int xkb_keysym_get_name 
-[^xkb_keysym_t keysym
-^char buffer
-^size_t size]]
+  [^int xkb_keysym_get_name
+   [^xkb_keysym_t keysym
+    ^char buffer
+    ^size_t size]]
 
-[^void xkb_context_unref 
-[^bytes ^{Pinned {}} context]]
+  [^void xkb_context_unref
+   [^bytes ^{Pinned {}} context]]
 
-[^void xkb_context_set_user_data 
-[^bytes ^{Pinned {}} context
-^void user_data]]
+  [^void xkb_context_set_user_data
+   [^bytes ^{Pinned {}} context
+    ^void user_data]]
 
-[^int xkb_context_include_path_append 
-[^bytes ^{Pinned {}} context
-^const path]]
+  [^int xkb_context_include_path_append
+   [^bytes ^{Pinned {}} context
+    ^const path]]
 
-[^int xkb_context_include_path_append_default 
-[^bytes ^{Pinned {}} context]]
+  [^int xkb_context_include_path_append_default
+   [^bytes ^{Pinned {}} context]]
 
-[^int xkb_context_include_path_reset_defaults 
-[^bytes ^{Pinned {}} context]]
+  [^int xkb_context_include_path_reset_defaults
+   [^bytes ^{Pinned {}} context]]
 
-[^void xkb_context_include_path_clear 
-[^bytes ^{Pinned {}} context]]
+  [^void xkb_context_include_path_clear
+   [^bytes ^{Pinned {}} context]]
 
-[^void xkb_context_set_log_verbosity 
-[^bytes ^{Pinned {}} context
-^int verbosity]]
+  [^void xkb_context_set_log_verbosity
+   [^bytes ^{Pinned {}} context
+    ^int verbosity]]
 
-[^int xkb_context_get_log_verbosity 
-[^bytes ^{Pinned {}} context]]
+  [^int xkb_context_get_log_verbosity
+   [^bytes ^{Pinned {}} context]]
 
-[^void xkb_keymap_unref 
-[^bytes ^{Pinned {}} keymap]]
+  [^void xkb_keymap_unref
+   [^bytes ^{Pinned {}} keymap]]
 
-[^int xkb_keymap_key_repeats 
-[^bytes ^{Pinned {}} keymap
-^xkb_keycode_t key]]
+  [^int xkb_keymap_key_repeats
+   [^bytes ^{Pinned {}} keymap
+    ^xkb_keycode_t key]]
 
-[^void xkb_state_unref 
-[^bytes ^{Pinned {}} state]]
+  [^void xkb_state_unref
+   [^bytes ^{Pinned {}} state]]
 
-[^int xkb_state_led_name_is_active 
-[^bytes ^{Pinned {}} state
-^const name]]
+  [^int xkb_state_led_name_is_active
+   [^bytes ^{Pinned {}} state
+    ^const name]]
 
-[^int xkb_state_led_index_is_active 
-[^bytes ^{Pinned {}} state
-^xkb_led_index_t idx]]
+  [^int xkb_state_led_index_is_active
+   [^bytes ^{Pinned {}} state
+    ^xkb_led_index_t idx]]
 
-[^void wlr_keyboard_led_update 
-[^bytes ^{Pinned {}} keyboard
-^u_int32_t leds]]
+  [^void wlr_keyboard_led_update
+   [^bytes ^{Pinned {}} keyboard
+    ^u_int32_t leds]]
 
-[^void wlr_list_finish 
-[^bytes ^{Pinned {}} list]]
+  [^void wlr_list_finish
+   [^bytes ^{Pinned {}} list]]
 
-[^void wlr_list_for_each 
-[^bytes ^{Pinned {}} list
-^void item]]
+  [^void wlr_list_for_each
+   [^bytes ^{Pinned {}} list
+    ^void item]]
 
-[^void wlr_list_del 
-[^bytes ^{Pinned {}} list
-^size_t index]]
+  [^void wlr_list_del
+   [^bytes ^{Pinned {}} list
+    ^size_t index]]
 
-[^void wlr_buffer_unref 
-[^bytes ^{Pinned {}} buffer]]
+  [^void wlr_buffer_unref
+   [^bytes ^{Pinned {}} buffer]]
 
-[^void wlr_output_create_global 
-[^bytes ^{Pinned {}} output]]
+  [^void wlr_output_create_global
+   [^bytes ^{Pinned {}} output]]
 
-[^void wlr_output_destroy_global 
-[^bytes ^{Pinned {}} output]]
+  [^void wlr_output_destroy_global
+   [^bytes ^{Pinned {}} output]]
 
-[^void wlr_output_set_scale 
-[^bytes ^{Pinned {}} output
-^float scale]]
+  [^void wlr_output_set_scale
+   [^bytes ^{Pinned {}} output
+    ^float scale]]
 
-[^void wlr_output_schedule_done 
-[^bytes ^{Pinned {}} output]]
+  [^void wlr_output_schedule_done
+   [^bytes ^{Pinned {}} output]]
 
-[^void wlr_output_destroy 
-[^bytes ^{Pinned {}} output]]
+  [^void wlr_output_destroy
+   [^bytes ^{Pinned {}} output]]
 
-[^void wlr_output_schedule_frame 
-[^bytes ^{Pinned {}} output]]
+  [^void wlr_output_schedule_frame
+   [^bytes ^{Pinned {}} output]]
 
-[^void wlr_output_lock_attach_render 
-[^bytes ^{Pinned {}} output
-^_Bool lock]]
+  [^void wlr_output_lock_attach_render
+   [^bytes ^{Pinned {}} output
+    ^_Bool lock]]
 
-[^void wlr_output_lock_software_cursors 
-[^bytes ^{Pinned {}} output
-^_Bool lock]]
+  [^void wlr_output_lock_software_cursors
+   [^bytes ^{Pinned {}} output
+    ^_Bool lock]]
 
-[^void wlr_output_cursor_destroy 
-[^bytes ^{Pinned {}} cursor]]
+  [^void wlr_output_cursor_destroy
+   [^bytes ^{Pinned {}} cursor]]
 
-[^void wlr_output_layout_destroy 
-[^bytes ^{Pinned {}} layout]]
+  [^void wlr_output_layout_destroy
+   [^bytes ^{Pinned {}} layout]]
 
-[^void wlr_cursor_destroy 
-[^bytes ^{Pinned {}} cur]]
+  [^void wlr_cursor_destroy
+   [^bytes ^{Pinned {}} cur]]
 
-[^void wlr_cursor_map_to_region 
-[^bytes ^{Pinned {}} cur
-^bytes ^{Pinned {}} box]]
+  [^void wlr_cursor_map_to_region
+   [^bytes ^{Pinned {}} cur
+    ^bytes ^{Pinned {}} box]]
 
-[^void wlr_surface_get_extends 
-[^bytes ^{Pinned {}} surface
-^bytes ^{Pinned {}} box]]
+  [^void wlr_surface_get_extends
+   [^bytes ^{Pinned {}} surface
+    ^bytes ^{Pinned {}} box]]
 
-[^void wlr_seat_destroy 
-[^bytes ^{Pinned {}} wlr_seat]]
+  [^void wlr_seat_destroy
+   [^bytes ^{Pinned {}} wlr_seat]]
 
-[^void wlr_seat_set_name 
-[^bytes ^{Pinned {}} wlr_seat
-^const name]]
+  [^void wlr_seat_set_name
+   [^bytes ^{Pinned {}} wlr_seat
+    ^const name]]
 
-[^void wlr_seat_pointer_clear_focus 
-[^bytes ^{Pinned {}} wlr_seat]]
+  [^void wlr_seat_pointer_clear_focus
+   [^bytes ^{Pinned {}} wlr_seat]]
 
-[^void wlr_seat_pointer_send_frame 
-[^bytes ^{Pinned {}} wlr_seat]]
+  [^void wlr_seat_pointer_send_frame
+   [^bytes ^{Pinned {}} wlr_seat]]
 
-[^void wlr_seat_pointer_end_grab 
-[^bytes ^{Pinned {}} wlr_seat]]
+  [^void wlr_seat_pointer_end_grab
+   [^bytes ^{Pinned {}} wlr_seat]]
 
-[^void wlr_seat_pointer_notify_frame 
-[^bytes ^{Pinned {}} wlr_seat]]
+  [^void wlr_seat_pointer_notify_frame
+   [^bytes ^{Pinned {}} wlr_seat]]
 
-[^void wlr_seat_set_keyboard 
-[^bytes ^{Pinned {}} seat
-^bytes ^{Pinned {}} dev]]
+  [^void wlr_seat_set_keyboard
+   [^bytes ^{Pinned {}} seat
+    ^bytes ^{Pinned {}} dev]]
 
-[^void wlr_seat_keyboard_end_grab 
-[^bytes ^{Pinned {}} wlr_seat]]
+  [^void wlr_seat_keyboard_end_grab
+   [^bytes ^{Pinned {}} wlr_seat]]
 
-[^void wlr_seat_keyboard_clear_focus 
-[^bytes ^{Pinned {}} wlr_seat]]
+  [^void wlr_seat_keyboard_clear_focus
+   [^bytes ^{Pinned {}} wlr_seat]]
 
-[^void wlr_seat_touch_end_grab 
-[^bytes ^{Pinned {}} wlr_seat]]
+  [^void wlr_seat_touch_end_grab
+   [^bytes ^{Pinned {}} wlr_seat]]
 
-[^int wlr_seat_touch_num_points 
-[^bytes ^{Pinned {}} seat]]
+  [^int wlr_seat_touch_num_points
+   [^bytes ^{Pinned {}} seat]]
 
-[^void wlr_data_device_manager_destroy 
-[^bytes ^{Pinned {}} manager]]
+  [^void wlr_data_device_manager_destroy
+   [^bytes ^{Pinned {}} manager]]
 
-[^void wlr_data_source_destroy 
-[^bytes ^{Pinned {}} source]]
+  [^void wlr_data_source_destroy
+   [^bytes ^{Pinned {}} source]]
 
-[^void wlr_data_source_dnd_drop 
-[^bytes ^{Pinned {}} source]]
+  [^void wlr_data_source_dnd_drop
+   [^bytes ^{Pinned {}} source]]
 
-[^void wlr_data_source_dnd_finish 
-[^bytes ^{Pinned {}} source]]
+  [^void wlr_data_source_dnd_finish
+   [^bytes ^{Pinned {}} source]]
 
-[^void wlr_idle_destroy 
-[^bytes ^{Pinned {}} idle]]
+  [^void wlr_idle_destroy
+   [^bytes ^{Pinned {}} idle]]
 
-[^void wlr_idle_notify_activity 
-[^bytes ^{Pinned {}} idle
-^bytes ^{Pinned {}} seat]]
+  [^void wlr_idle_notify_activity
+   [^bytes ^{Pinned {}} idle
+    ^bytes ^{Pinned {}} seat]]
 
-[^void wlr_idle_timeout_destroy 
-[^bytes ^{Pinned {}} timeout]]
+  [^void wlr_idle_timeout_destroy
+   [^bytes ^{Pinned {}} timeout]]
 
-[^void wlr_matrix_identity 
-[^float mat]]
+  [^void wlr_matrix_identity
+   [^float mat]]
 
-[^void wlr_matrix_transpose 
-[^float mat
-^const a]]
+  [^void wlr_matrix_transpose
+   [^float mat
+    ^const a]]
 
-[^void wlr_matrix_translate 
-[^float mat
-^float x
-^float y]]
+  [^void wlr_matrix_translate
+   [^float mat
+    ^float x
+    ^float y]]
 
-[^void wlr_matrix_scale 
-[^float mat
-^float x
-^float y]]
+  [^void wlr_matrix_scale
+   [^float mat
+    ^float x
+    ^float y]]
 
-[^void wlr_matrix_rotate 
-[^float mat
-^float rad]]
+  [^void wlr_matrix_rotate
+   [^float mat
+    ^float rad]]
 
-[^void wlr_xcursor_theme_destroy 
-[^bytes ^{Pinned {}} theme]]
+  [^void wlr_xcursor_theme_destroy
+   [^bytes ^{Pinned {}} theme]]
 
-[^int wlr_xcursor_frame 
-[^bytes ^{Pinned {}} cursor
-^u_int32_t time]]
+  [^int wlr_xcursor_frame
+   [^bytes ^{Pinned {}} cursor
+    ^u_int32_t time]]
 
-[^void wlr_xcursor_manager_destroy 
-[^bytes ^{Pinned {}} manager]]
+  [^void wlr_xcursor_manager_destroy
+   [^bytes ^{Pinned {}} manager]]
 
-[^void wlr_xdg_shell_destroy 
-[^bytes ^{Pinned {}} xdg_shell]]
+  [^void wlr_xdg_shell_destroy
+   [^bytes ^{Pinned {}} xdg_shell]]
 
-[^void wlr_xdg_surface_ping 
-[^bytes ^{Pinned {}} surface]]
+  [^void wlr_xdg_surface_ping
+   [^bytes ^{Pinned {}} surface]]
 
-[^void wlr_xdg_toplevel_send_close 
-[^bytes ^{Pinned {}} surface]]
+  [^void wlr_xdg_toplevel_send_close
+   [^bytes ^{Pinned {}} surface]]
 
-[^void wlr_xdg_popup_destroy 
-[^bytes ^{Pinned {}} surface]]
+  [^void wlr_xdg_popup_destroy
+   [^bytes ^{Pinned {}} surface]]
 
-[^void wlr_positioner_invert_x 
-[^bytes ^{Pinned {}} positioner]]
+  [^void wlr_positioner_invert_x
+   [^bytes ^{Pinned {}} positioner]]
 
-[^void wlr_positioner_invert_y 
-[^bytes ^{Pinned {}} positioner]]
+  [^void wlr_positioner_invert_y
+   [^bytes ^{Pinned {}} positioner]]
 
-;; [^void wlr_log_init
+  ;; [^void wlr_log_init [^enum verbosity ^wlr_log_func_t callback]]
 
-;; [^enum verbosity
-;; ^wlr_log_func_t callback]]
+  ;; [^void _wlr_log
+  ;; [^enum verbosity
+  ;; ^const format
+  ;; ^__attribute__ printf
+  ;; ^2 null
+  ;; ^3 null]]
 
-;; [^void _wlr_log
-;; [^enum verbosity
-;; ^const format
-;; ^__attribute__ printf
-;; ^2 null
-;; ^3 null]]
-
-;; [^void _wlr_vlog
-;; [^enum verbosity
-;; ^const format
-;; ^va_list printf
-;; ^2 null
-;;  ^0 null]
-;;  ]
-]
+  ;; [^void _wlr_vlog
+  ;; [^enum verbosity
+  ;; ^const format
+  ;; ^va_list printf
+  ;; ^2 null
+  ;;  ^0 null]
+  ;;  ]
+  ]

@@ -1,16 +1,13 @@
 (ns bspwwm.core
   (:require [clojure.string :as s]
-            ;; [clojure.math.combinatorics :as c]
+            [clojure.math.combinatorics :as c]
             [clojure.java.shell :as shell]
-            ;; [medley.core :as m]
-            ;; [clojure.string :as str]
+            [medley.core :as m]
             )
   (:import [jnr.ffi LibraryLoader LibraryOption]
            [jnr.ffi.annotations
-            In
-            Out
-            Pinned
-            LongLong
+            In Out
+            Pinned LongLong
             ;; Link
             ]
            [jnr.ffi.types
@@ -21,6 +18,8 @@
             ])
   ;; (:gen-class)
   )
+
+;; jnr.ffi.types.
 
 ;; uint32_t jnr.ffi.Struct
 ;; In
@@ -51,7 +50,6 @@
                       (last (re-seq #"[a-zA-Z_]+" %))
                       )
 
-              ;; what were you doing here
               (format "^%s %s"
                       (cond
 
@@ -61,8 +59,7 @@
                               "uint" "u_int")
                         )
 
-                      ;; match jnr
-                      (last (re-seq #"[a-zA-Z_]+" %))
+                      (last (re-seq #"[a-zA-Z_]+" %)) ;; match jnr
                       )
               )
            (map s/trim
@@ -128,18 +125,17 @@
                         (vary-meta arg assoc :tag tag)))]]
       [name (mapv ann args)])))
 
-;; todo: replace this with a reading
 (def ^:private raw-bound-fns
   "See [[bound-fns]], but without the permutations."
   '[
     [^void wlr_log_init [^int verbosity]]
-    ]
-  )
+    ;; [^int wlr_log_get_verbosity [^int verbosity]]
 
-(def ^:private raw-bound-fns
-  "See [[bound-fns]], but without the permutations."
-  ;; '[[^void wlr_log_init [^int verbosity]]]
-  (-> "./resources/bindings/wlroots-methods.edn" slurp read-string)
+    [^static ^void log_wl [^bytes ^{Pinned {}} fmt
+                           ^bytes ^{Pinned {}} args
+                           ]]
+    ]
+  ;; (-> "./resources/bindings/wlroots-methods.edn" slurp read-string)
   )
 
 (def ^:private bound-fns
@@ -165,7 +161,6 @@
 (defn ^:private load-wlroots
   "Load native libwlroots library."
   ([]
-   ;;
    (load-wlroots "/nix/store/2sppkxs3nypzm9z8ksjfcqznp5vbghqw-wlroots-0.10.0/lib/libwlroots.so")
    ;; (load-wlroots "wlroots")
    )
@@ -177,6 +172,58 @@
       (.load lib))
      (catch Exception e
        (throw (ClassNotFoundException. "unable to load native libwlroots; is it installed?"))))))
+
+(def ^Wlroots wlroots
+  "The wlroots library singleton instance."
+  (load-wlroots
+   "/nix/store/2sppkxs3nypzm9z8ksjfcqznp5vbghqw-wlroots-0.10.0/lib/libwlroots.so"
+   ;; try setting LD_LIBRARY_PATH to get this dynamic resolution
+   ;; steal the solution from your adhoc nix thingy
+   ;; "wlroots"
+   ))
+
+;; (macroexpand-1 '(call! wlr_log_init 1))
+;; (.wlr_log_init bspwwm.core/wlroots)
+
+(.wlr_log_init bspwwm.core/wlroots 3)
+
+(.log_stderr bspwwm.core/wlroots 3 "%s" "wuck")
+(.wlr_log bspwwm.core/wlroots 3 "%s" "wuck")
+
+(defn ^:private java-call-sym
+  "Creates the Clojure Java method call syntax to call a method on the
+  libsodium binding."
+  [c-name]
+  (symbol (str "." c-name)))
+
+(defmacro call!
+  "Produces a form for calling named fn with lots of magic:
+
+  * The fn-name is specified using its short name, which is resolved
+    against the ns as per [[defconsts]].
+  * All bufs are annotated as ByteBuffers.
+  * Buffer lengths are automatically added."
+  [fn-name & args]
+
+  (let
+      [
+       c-name (s/replace (name fn-name) "-" "_")
+       ;; (c-name *ns* fn-name)
+       [_ c-args] (m/find-first (comp #{c-name} first) raw-bound-fns)
+       normalize-tag (fn [k] (get {'bytes 'java.nio.ByteBuffer} k k))
+       tag (fn [arg] (-> (m/find-first #{arg} c-args) meta :tag normalize-tag))
+       call-args (for [arg c-args]
+                   (cond
+                     (some #{arg} args)
+                     (with-meta arg {:tag (tag arg)})
+
+                     (= 'long (tag arg))
+                     (let [arg-sym (symbol (s/replace (name arg) #"len$" ""))]
+                       `(long (caesium.byte-bufs/buflen ~arg-sym)))
+
+                     (= 'jnr.ffi.byref.LongLongByReference (tag arg))
+                     nil))]
+    `(~(java-call-sym c-name) wlroots ~@call-args)))
 
 (defn -main
   "I don't do a whole lot ... yet."

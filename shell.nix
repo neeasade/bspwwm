@@ -4,7 +4,7 @@ let
   # todo: note this versions/nixos on my install?
   libxkbcommon = pkgs.libxkbcommon;
 
-  wayland-protocols = (pkgs.wayland-protocols.overrideAttr(old: {
+  wayland-protocols = (pkgs.wayland-protocols.overrideAttrs(old: {
     version = "1.18";
     src = pkgs.fetchurl {
       url = "https://wayland.freedesktop.org/releases/wayland-protocols-1.18.tar.xz";
@@ -13,7 +13,7 @@ let
   }));
 
   # wayland = pkgs.wayland;
-  wayland = (pkgs.wayland.overrideAttr(old: {
+  wayland = (pkgs.wayland.overrideAttrs(old: {
     version = "1.18.0";
     src = pkgs.fetchurl {
       url = "https://wayland.freedesktop.org/releases/wayland-1.18.0.tar.xz";

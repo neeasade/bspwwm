@@ -6,6 +6,9 @@
   :dependencies [
                  [org.clojure/clojure "1.10.0"]
                  [com.github.jnr/jnr-ffi "2.1.9"]
+                 [org.clojure/math.combinatorics "0.1.4"]
+
+                 [medley "1.0.0"]
                  ]
   :main ^:skip-aot bspwwm.core
   :target-path "target/%s"

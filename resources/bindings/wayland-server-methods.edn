@@ -1,5 +1,4 @@
-'[
-  [^void wl_list_init
+'[[^void wl_list_init
    [^bytes ^{Pinned {}} list]]
 
   [^void wl_list_insert
